@@ -1,4 +1,6 @@
 class User < ApplicationRecord
-  validates :username, presence: true, length: { minimum: 3, maximum: 64 }
+  has_many :posts
+
+  validates :username, presence: true, length: { in: 3..64 }
   validates :email, presence: true
 end
